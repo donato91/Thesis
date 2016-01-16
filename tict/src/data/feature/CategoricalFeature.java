@@ -30,7 +30,7 @@ public class CategoricalFeature extends Feature implements Iterable<String>, Clo
 		}
 		
 	}
-	@Override
+	
 	public Iterator<String> iterator() {
 		// TODO Auto-generated method stub
 		return ts.keySet().iterator();

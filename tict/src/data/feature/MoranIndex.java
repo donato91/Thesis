@@ -160,7 +160,7 @@ public class MoranIndex implements AutocorrelationI {
 		}
 		
 	}
-	@Override
+	
 	public Double compute(SnapshotData data, Feature feature, SnapshotWeigth W, int beginIndex, int endIndex){
 	
 		return compute(data, (NumericFeature)feature, W, beginIndex, endIndex);

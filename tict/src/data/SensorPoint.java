@@ -47,7 +47,7 @@ public class SensorPoint implements Iterable<Value>, Cloneable,Serializable{
 		return s;
 	}
 
-	@Override
+
 	public Iterator<Value> iterator() {
 		// TODO Auto-generated method stub
 		return measures.iterator();

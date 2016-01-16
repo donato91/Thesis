@@ -83,7 +83,7 @@ public class IctTest {
 		report += "storedModel= true(the serialized model is stored), false(a new model is learned)\n";
 		report += "storedCentroidModel= true(the serialized centrolid model is stored, it is considered only if storedModel=true), false(a new centroid model is learned)\n";
 		report += "storedWeightMatrix=true(the serialized weight matrix is stored), false(a new model is learned)\n";
-		report += "serializedSamplingPercentage: real value in ]0,1]  (optional if storedCentroidModel=true) , the cod of the serialzied file\n";
+		report += "serializedSamplingPercentage: real value in ]0,1]  (optional if storedCentroidModel=true) , the cod of the serialzied file";
 		report += "Reports are created in the local directory called \'output\'\n";
 				
 		System.out.println(report);

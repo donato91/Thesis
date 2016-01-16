@@ -119,8 +119,8 @@ public class SplittingNode extends Node {
 		
 			public String toString(){
 				String str="";
-				for(int i=0;i<getDepth();i++)
-					str+="-";
+				/*for(int i=0;i<getDepth();i++)
+					str+="-";*/
 				return str+"("+feature.getName()+comparator+splitValue+")";
 			}
 			
@@ -329,7 +329,7 @@ public class SplittingNode extends Node {
 					resubstituitionGOErrorLeft.put(t.getIndexMining(), new ResubstitutionIndexOnGetisOrd());
 					resubstituitionGOErrorRight.put(t.getIndexMining(), new ResubstitutionIndexOnGetisOrd(resubstituitionGOError.get(t.getIndexMining()).getSumX(), resubstituitionGOError.get(t.getIndexMining()).getSumX2(), resubstituitionGOError.get(t.getIndexMining()).getN()));
 							
-					//System.out.println(resubstituitionGOErrorRight.get(t.getIndexMining()).get() + " "+ t.getAutocorrelation());
+					//System.out.println(t.getIndexMining() + " a: " + t.getAutocorrelation());
 					
 				}
 			} else
@@ -453,7 +453,7 @@ public class SplittingNode extends Node {
 					}
 				}
 				else if(a instanceof ResubstitutionIndexOnGetisOrd){
-					for(Feature t:schema.getTargetListNotLeaf()){
+  					for(Feature t:schema.getTargetListNotLeaf()){
 						if((schema.getTargetList().size()>1 && (t.getIndexMining()!=fi.getIndexMining())) // se ci sono molteplici split evito di riconsiderare la variabile dello split nella euristica
 								||
 								(schema.getTargetList().size()==1)

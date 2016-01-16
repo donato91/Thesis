@@ -144,7 +144,7 @@ public class KNNModel {
 			return clusterId+","+centroid.getMeasure(0).getValue()+","+centroid.getMeasure(1).getValue()+","+model;
 		}
 
-		@Override
+		
 		public int compareTo(Model o) {
 			// TODO Auto-generated method stub
 			if (distance<=o.distance) return -1;

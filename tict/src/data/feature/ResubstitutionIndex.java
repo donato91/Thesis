@@ -116,7 +116,7 @@ public class ResubstitutionIndex implements AutocorrelationI {
 		return R;
 	}
 
-	@Override
+	
 	public boolean isMax(double v) {
 		return v==0.0;
 	}

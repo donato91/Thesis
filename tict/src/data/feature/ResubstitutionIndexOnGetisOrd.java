@@ -84,7 +84,7 @@ public class ResubstitutionIndexOnGetisOrd implements AutocorrelationI {
 		return N;
 	}
 
-		@Override
+		
 		public Double compute(SnapshotData data, Feature feature, SnapshotWeigth W,	int beginIndex, int endIndex) {
 			Double R=0.0;
 			NumericFeature f=(NumericFeature)feature;
@@ -113,7 +113,7 @@ public class ResubstitutionIndexOnGetisOrd implements AutocorrelationI {
 	
 		
 		
-		@Override
+		
 		public boolean isMax(double v) {
 			return v==0.0;
 		}

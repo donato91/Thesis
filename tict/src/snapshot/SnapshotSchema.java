@@ -103,7 +103,7 @@ public class SnapshotSchema implements Serializable, Cloneable{
        // if(key==null)
         //	throw new ErrorFormatException("No sensor key in the stream");
         
-        //Update mining index key, spatial, spatial,..., spatial, target, target, ..., target
+        //Update mining index (TRANNE DI) key, spatial, spatial,..., spatial, target, target, ..., target
         int id=0;
         for(SpatialFeature fs:spatial){
         	fs.setIndexMining(id++);

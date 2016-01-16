@@ -37,18 +37,34 @@ abstract public class SnapshotWeigth implements Serializable{
 	public static double maxDist(SnapshotData data, DistanceI distance) {
 		double maxD=-1.0;
 
+		/*
+		 * confronta tutti i sensori dello Shapshotdata in analisi, paragonandoli a 2 a 2,
+		 *  e facendosi restituire la distanza tra i 2 dal metodo compute dell'istanza 
+		 *  distance della classe EuclideanDistance. 
+		 *  
+		 *  N.B. distance è un oggetto che passa per l'interfaccia DistanceI
+		 *  creata affinché possa essere possibile aggiungere un nuovo metodo per 
+		 *  calcolare la distanza tra 2 SP (basta mettere il metodo compute(SP1, SP2)).
+		 *  
+		 *  N.B.2 CANCELLARE I SOUT E I SERR, LA VARIABILE DKEY, IL SOUT FINALE COMMENTATO E L'IF
+		 */
+		//String dkeys=null;
 		for (int i=0;i<data.size();i++)
 			for(int j=i;j<data.size();j++)
 			{
-				String key=data.getSensorPoint(i).getId()+":"+data.getSensorPoint(j).getId();
+				//String keys=data.getSensorPoint(i).getId()+":"+data.getSensorPoint(j).getId();
+				//System.err.println(keys);
 					if(data.getSensorPoint(i).getId()!=data.getSensorPoint(j).getId())
 					{
 						double d=distance.compute(data.getSensorPoint(i), data.getSensorPoint(j));
-						if(d>maxD)
+						//System.err.println("D: " + d);
+						if(d>maxD){
 							maxD=d;
+							//dkeys = keys;
+						}
 					}
 			}
-		//System.out.println("Maximum distance is:"+maxD);
+		//System.out.println("Maximum distance is: "+maxD+" the keys of the sensor maximum distance between are: " + dkeys);
 		return maxD;
 	}
 					

@@ -7,7 +7,11 @@ public class EuclideanDistance implements DistanceI {
 	public EuclideanDistance(int numberOfDimensions) {
 		this.numberOfDimensions=numberOfDimensions;
 	}
-	@Override
+	
+	/*
+	 * Calcola la distanza spaziale tra due sensori 
+	 * sqrt((x1-x2)^2 + (y1-y2)^2)
+	 */
 	public Double compute(SensorPoint p1, SensorPoint p2) {
 		// TODO Auto-generated method stub
 		double d=0;

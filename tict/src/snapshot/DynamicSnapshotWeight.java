@@ -64,6 +64,12 @@ public class DynamicSnapshotWeight extends SnapshotWeigth{
 			return 0.0;
 		else{
 			try{
+				/*
+				 * Questa inversione serve perché precedentemente avevamo salvato nella matrice dei
+				 * pesi le distanze tra l'id1 e id2 quando l'id1 era sempre il più piccolo.
+				 * Ovvero, senza di questo, il peso richiesto potrebbe non esserci e verrebbe
+				 * lanciata l'eccezione.
+				 */
 			if(id1<id2)
 				
 				w=(double)D.get(id1).get(id2);

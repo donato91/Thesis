@@ -136,7 +136,7 @@ public class SnapshotData implements Iterable<SensorPoint>{
  
 
  private boolean inputSnaphot(BufferedReader stream, SnapshotSchema schema) throws IOException{
-	 String inLine = stream.readLine(); // prima tupla
+	 String inLine = stream.readLine(); // prima tupla effettiva, perché prima avevo "@"
 	 if(inLine==null) return false;
 	 numberOfSpatialFeatures=schema.getSpatialList().size();
 	 numberOfTargetFeatures=schema.getTargetList().size();
@@ -680,7 +680,7 @@ public void sort(Feature f,int begin,int end){
 			//return id+ " father:"+father+ " children:"+children+ " numExample:"+(endExampleIndex-beginExampleIndex+1);
 			return id+ " father:"+father+ " numExample:"+(endExampleIndex-beginExampleIndex+1);
 		}
-		@Override
+		
 		public int compareTo(QUADTREESplit o) {
 			// TODO Auto-generated method stub
 			/*if(father<=this.father)
@@ -1087,7 +1087,7 @@ public void sort(Feature f,int begin,int end){
 		 
 		 
 	 }
-@Override
+
 public Iterator<SensorPoint> iterator() {
 	// TODO Auto-generated method stub
 	return data.iterator();

@@ -191,17 +191,17 @@ public class TictTest {
 					System.out.println("**** ID: "+snapTrain.getIdSnapshot());
 					outputReport.println("**** ID: "+snapTrain.getIdSnapshot());
 					;
-					if(tree==null)// first snapshot in the stream
+					if(tree==null)// first true snapshot in the stream
 					{
-						
-						
 						timeBegin= new GregorianCalendar();
 					
 						
-						tree=new Tree(snapTrain, schemaTrain, W, autoCorrelation, splitNumber,centroidPercentage,sampling,testType);
+						tree=new Tree(snapTrain, schemaTrain, W, autoCorrelation, splitNumber,testType);
 						
-						KNNModel knn=new KNNModel();
-						tree.populateKNNModel(knn);
+						
+						System.out.println(tree.Iterator());
+						//KNNModel knn=new KNNModel();
+						//tree.populateKNNModel(knn);
 						
 						GregorianCalendar timeEnd= new GregorianCalendar();
 						
@@ -214,7 +214,7 @@ public class TictTest {
 						outputReport.println("Computation time(milliseconds)="+time);
 						
 						timeBegin= new GregorianCalendar();
-						String mse=knn.testKnn(snapTest, schemaTest, "output/stream/csvtict/"+args[0]+name+"_"+snapTest.getIdSnapshot()+".csv");
+						//String mse=knn.testKnn(snapTest, schemaTest, "output/stream/csvtict/"+args[0]+name+"_"+snapTest.getIdSnapshot()+".csv");
 						timeEnd= new GregorianCalendar();
 						outputReport.println("Interpolation time(milliseconds)="+(timeEnd.getTimeInMillis()-timeBegin.getTimeInMillis()));
 						
@@ -223,7 +223,7 @@ public class TictTest {
 				
 						
 						outputReport.println("Error statistics");
-						outputReport.println(configStr+"\n"+mse);
+						//outputReport.println(configStr+"\n"+mse);
 						
 						outputReport.println("Leaves statisics");
 						outputReport.println("number of leaves of the tree inherited from the past="+pastLeaves);
@@ -240,11 +240,14 @@ public class TictTest {
 						int pastLeaves=0,afterPruningLeaves=0,newLeaves=0;
 						pastLeaves=tree.countLeaves();
 						timeBegin= new GregorianCalendar();
-						currentTimeBegin = timeBegin.getTime();
+						currentTimeBegin = timeBegin.getTime(); 
 						tree.prune(snapTrain,schemaTrain,W,autoCorrelation);
+						System.out.println("PRUNE: ");
+						System.out.println(tree.Iterator());
 						afterPruningLeaves=tree.countLeaves();
-						tree.drift(snapTrain,schemaTrain,W,autoCorrelation,  splitNumber,centroidPercentage,sampling,testType);
-						
+						tree.drift(snapTrain,schemaTrain,W,autoCorrelation,  splitNumber,testType);
+						System.out.println("DRIFT: ");
+						System.out.println(tree.Iterator());
 						KNNModel knn=new KNNModel();
 						tree.populateKNNModel(knn);
 						
